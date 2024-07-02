@@ -63,7 +63,14 @@ const UserWidget = ({ userId, picturePath }) => {
           {picturePath ? (
             <UserImage image={picturePath} />
           ) : (
-            <Avatar sx={{ bgcolor: "#1976d2", width: 50, height: 50 }}>
+            <Avatar
+              sx={{
+                color: palette.background.alt,
+                backgroundColor: "#70A0DB",
+                width: 50,
+                height: 50,
+              }}
+            >
               {getInitials("First Name")}
             </Avatar>
           )}

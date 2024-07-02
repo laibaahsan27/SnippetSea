@@ -61,12 +61,12 @@ const PostWidget = ({
       <Friend
         friendId={postUserId}
         name={name}
-        subtitle={location}
+        // subtitle={location}
         userPicturePath={userPicturePath}
       />
-      <Typography color={main} sx={{ mt: "1rem" }}>
+      {/* <Typography color={main} sx={{ mt: "1rem" }}>
         {description}
-      </Typography>
+      </Typography> */}
       {picturePath && (
         <img
           width="100%"
@@ -138,7 +138,9 @@ const PostWidget = ({
           <Divider />
         </Box>
       )}
-      {isOpen && <CodeFile code={DemoCode} locked={false} />}
+      {console.log("location", location)}
+      {/* {isOpen && <CodeFile code={description} locked={location} />} */}
+      {isOpen && <CodeFile code={description} picturePath={picturePath} />}
     </WidgetWrapper>
   );
 };

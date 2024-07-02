@@ -66,12 +66,19 @@ const MyPostWidget = ({ picturePath }) => {
         {picturePath ? (
           <UserImage image={picturePath} />
         ) : (
-          <Avatar sx={{ bgcolor: "#1976d2", width: 50, height: 50 }}>
+          <Avatar
+            sx={{
+              color: palette.background.alt,
+              backgroundColor: "#70A0DB",
+              width: 50,
+              height: 50,
+            }}
+          >
             {getInitials("First Name")}
           </Avatar>
         )}
         <InputBase
-          placeholder="What's on your mind..."
+          placeholder="Start typing the code here..."
           onChange={(e) => setPost(e.target.value)}
           value={post}
           sx={{

@@ -7,10 +7,11 @@ import { Highlight, themes } from "prism-react-renderer";
 import prettier from "prettier/standalone";
 import parserBabel from "prettier/parser-babel";
 
-const CodeFile = ({ code, language = "jsx", locked }) => {
+const CodeFile = ({ code, language = "jsx", picturePath }) => {
   const [copied, setCopied] = useState(false);
   const [formattedCode, setFormattedCode] = useState("");
-
+  const locked = picturePath === "post3.jpeg" ? true : false;
+  console.log("locked", locked);
   useEffect(() => {
     const formatCode = async () => {
       try {
@@ -24,7 +25,6 @@ const CodeFile = ({ code, language = "jsx", locked }) => {
         setFormattedCode(code);
       }
     };
-
     formatCode();
   }, [code]);
 
@@ -52,7 +52,16 @@ const CodeFile = ({ code, language = "jsx", locked }) => {
           language={language}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={className} style={{ ...style, margin: 0 }}>
+            <pre
+              className={className}
+              style={{
+                ...style,
+                margin: 0,
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-word",
+                overflowWrap: "break-word",
+              }}
+            >
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (
